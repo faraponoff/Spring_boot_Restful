@@ -1,5 +1,6 @@
 package repository.controler;
 
+import repository.model.Role;
 import repository.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,6 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import repository.service.RoleService;
 import repository.service.UserService;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/admin")

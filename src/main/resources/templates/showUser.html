@@ -66,12 +66,13 @@
                         <td th:text="${user.surname}"></td>
                         <td th:text="${user.profession}"></td>
                         <td th:text="${user.email}"></td>
+                        <th th:text="${user.getAuthorities().toString().replaceFirst('ROLE_', '')}">value</th>
 <!--                        <td th:text="${user.authorities}"></td>-->
-                        <td>
-                            <th:block th:each="role : ${user.getRoles()}">
-                                <a th:text="${role.role} "></a>
-                            </th:block>
-                        </td>
+<!--                        <td>-->
+<!--                            <th:block th:each="role : ${user.getRoles()}">-->
+<!--                                <a th:text="${role.role} "></a>-->
+<!--                            </th:block>-->
+<!--                        </td>-->
                     </tr>
                     </tr>
                     </tbody>
