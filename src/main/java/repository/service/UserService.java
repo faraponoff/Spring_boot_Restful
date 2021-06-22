@@ -33,7 +33,7 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public User saveUser(User user, String[] roleNames) {
+    public User saveUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
 

@@ -45,7 +45,10 @@ public class Role implements GrantedAuthority {
     public void setRole(String role) {
         this.role = role;
     }
-
+    @Override
+    public String toString() {
+        return role;
+    }
 
     @Override
     public String getAuthority() {
