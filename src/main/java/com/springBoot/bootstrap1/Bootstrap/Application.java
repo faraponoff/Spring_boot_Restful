@@ -1,9 +1,7 @@
-package repository;
+package com.springBoot.bootstrap1.Bootstrap;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
 
 //@ComponentScan("com.boots")
