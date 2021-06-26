@@ -18,9 +18,14 @@ public class RoleDAOImpl implements RoleDAO {
         this.entityManager = entityManager;
     }
 
-    @Override
+//    @Override
     public Role getRoleById(int id) {
         return entityManager.find(Role.class, id);
+    }
+
+    @Override
+    public Role getRoleById(Integer[] role_id) {
+        return null;
     }
 
     @Override

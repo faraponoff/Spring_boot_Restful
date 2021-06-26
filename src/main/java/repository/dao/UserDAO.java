@@ -18,5 +18,7 @@ public interface UserDAO {
     User updateUser(User user, String[] roleNames);
 
     User getUserByEmail(String username);
+    User show(int id);
+
 
 }

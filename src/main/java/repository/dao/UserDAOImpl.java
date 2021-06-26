@@ -18,6 +18,11 @@ public class UserDAOImpl implements UserDAO {
 
     private EntityManager entityManager;
 
+    @Override
+    public User show(int id) {
+        return entityManager.find(User.class, id);
+    }
+
     @PersistenceContext
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
