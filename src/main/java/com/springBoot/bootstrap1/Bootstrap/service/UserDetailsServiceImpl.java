@@ -1,5 +1,5 @@
 package com.springBoot.bootstrap1.Bootstrap.service;
-import com.springBoot.bootstrap1.Bootstrap.Repo.UserRepository;
+import com.springBoot.bootstrap1.Bootstrap.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

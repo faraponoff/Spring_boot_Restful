@@ -1,7 +1,7 @@
 package com.springBoot.bootstrap1.Bootstrap.service;
 
-import com.springBoot.bootstrap1.Bootstrap.Repo.RoleRepository;
-import com.springBoot.bootstrap1.Bootstrap.Repo.UserRepository;
+import com.springBoot.bootstrap1.Bootstrap.repository.RoleRepository;
+import com.springBoot.bootstrap1.Bootstrap.repository.UserRepository;
 import com.springBoot.bootstrap1.Bootstrap.model.Role;
 import com.springBoot.bootstrap1.Bootstrap.model.User;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.springBoot.bootstrap1.Bootstrap.Repo;
+package com.springBoot.bootstrap1.Bootstrap.repository;
 import com.springBoot.bootstrap1.Bootstrap.model.User;
 import org.springframework.data.repository.CrudRepository;
 
