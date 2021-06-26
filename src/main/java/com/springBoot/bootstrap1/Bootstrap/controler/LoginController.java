@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping()
 public class LoginController {
 
     private final UserService userService;
@@ -38,8 +38,8 @@ public class LoginController {
         return "redirect:/admin";
     }
 
-    @PostMapping("/admin/edit/{id}")
-    public String edit(Model model, @PathVariable("id") long id, User user) {
+    @PostMapping("/admin/edit/")
+    public String edit(Model model, @RequestParam("id") long id, User user) {
         model.addAttribute("user", userService.show(id));
         model.addAttribute("user", user);
         List<Role> allRoles = userService.getRoles();
@@ -49,8 +49,8 @@ public class LoginController {
 
     }
 
-    @GetMapping("admin/{id}")
-    public String delete(@PathVariable("id") long id) {
+    @GetMapping("admin/")
+    public String delete(@RequestParam("id") long id) {
         userService.delete(id);
         return "redirect:/admin";
     }
