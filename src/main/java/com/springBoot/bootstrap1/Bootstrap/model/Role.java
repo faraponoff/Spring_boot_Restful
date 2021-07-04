@@ -6,7 +6,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name= "roles")
+@Table(name = "roles")
 public class Role implements GrantedAuthority {
 
     @Id
@@ -15,7 +15,7 @@ public class Role implements GrantedAuthority {
     @Column
     private String name;
 
-    @ManyToMany(fetch = FetchType.EAGER,mappedBy = "roles")
+    @ManyToMany(mappedBy = "roles")
     private List<User> users;
 
     public Role() {

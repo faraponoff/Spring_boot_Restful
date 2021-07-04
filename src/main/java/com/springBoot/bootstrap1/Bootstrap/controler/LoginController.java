@@ -8,10 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
-@RequestMapping()
 public class LoginController {
 
     private final UserService userService;
@@ -21,10 +21,9 @@ public class LoginController {
         this.userService = userService;
     }
 
-
-    @GetMapping("/admin")
-    public String index1(@ModelAttribute User user, Model model) {
-        User admin = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    @GetMapping
+    public String index(Principal principal, Model model) {
+        User admin = userService.getUserByUserName(principal.getName());
         model.addAttribute("admin", admin);
         model.addAttribute("users", userService.getAllUsers());
         List<Role> allRoles = userService.getRoles();
@@ -32,26 +31,4 @@ public class LoginController {
         return "admin";
     }
 
-    @PostMapping("admin/new")
-    public String newUser(@ModelAttribute("user") User user) {
-        userService.save(user);
-        return "redirect:/admin";
-    }
-
-    @PostMapping("/admin/edit/")
-    public String edit(Model model, @RequestParam("id") long id, User user) {
-        model.addAttribute("user", userService.show(id));
-        model.addAttribute("user", user);
-        List<Role> allRoles = userService.getRoles();
-        model.addAttribute("allRoles", allRoles);
-        userService.save(user);
-        return "redirect:/admin";
-
-    }
-
-    @GetMapping("admin/")
-    public String delete(@RequestParam("id") long id) {
-        userService.delete(id);
-        return "redirect:/admin";
-    }
 }
