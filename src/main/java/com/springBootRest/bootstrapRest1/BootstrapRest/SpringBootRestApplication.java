@@ -1,4 +1,4 @@
-package com.springBoot.bootstrap1.Bootstrap;
+package com.springBootRest.bootstrapRest1.BootstrapRest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

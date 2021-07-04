@@ -1,4 +1,4 @@
-package com.springBoot.bootstrap1.Bootstrap.security;
+package com.springBootRest.bootstrapRest1.BootstrapRest.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;

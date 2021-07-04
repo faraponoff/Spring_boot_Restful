@@ -1,4 +1,5 @@
-package com.springBoot.bootstrap1.Bootstrap.model;
+package com.springBootRest.bootstrapRest1.BootstrapRest.model;
+import antlr.collections.List;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import javax.persistence.*;
@@ -15,7 +16,7 @@ public class Role implements GrantedAuthority {
     @Column
     private String name;
 
-    @ManyToMany(mappedBy = "roles")
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "roles")
     private List<User> users;
 
     public Role() {

@@ -1,6 +1,5 @@
-package com.springBoot.bootstrap1.Bootstrap.service;
-import com.springBoot.bootstrap1.Bootstrap.model.User;
-import com.springBoot.bootstrap1.Bootstrap.repository.UserRepository;
+package com.springBootRest.bootstrapRest1.BootstrapRest.service;
+import com.springBootRest.bootstrapRest1.BootstrapRest.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,17 +15,9 @@ class UserDetailsServiceImpl implements UserDetailsService {
         this.userRepository = userRepository;
     }
 
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findUserByUsername(username);
-        if (user == null) {
-            throw new UsernameNotFoundException(String.format("User '%s' not found", username));
-        }
-        return new org.springframework.security.core.userdetails.User(
-                user.getUsername(),
-                user.getPassword(),
-                user.getAuthorities()
-        );
+        return userRepository.findUserByUsername(username);
     }
+
 }

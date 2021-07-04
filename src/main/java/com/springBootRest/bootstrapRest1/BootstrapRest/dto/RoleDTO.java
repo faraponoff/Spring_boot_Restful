@@ -1,4 +1,4 @@
-package com.springBoot.bootstrap1.Bootstrap.dto;
+package com.springBootRest.bootstrapRest1.BootstrapRest.dto;
 
 import lombok.Data;
 

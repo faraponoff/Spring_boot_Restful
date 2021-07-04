@@ -1,19 +1,17 @@
-package com.springBoot.bootstrap1.Bootstrap.service;
-import com.springBoot.bootstrap1.Bootstrap.repository.RoleRepository;
-import com.springBoot.bootstrap1.Bootstrap.repository.UserRepository;
-import com.springBoot.bootstrap1.Bootstrap.model.Role;
-import com.springBoot.bootstrap1.Bootstrap.model.User;
+package com.springBootRest.bootstrapRest1.BootstrapRest.service;
+import antlr.collections.List;
+import com.springBootRest.bootstrapRest1.BootstrapRest.repository.RoleRepository;
+import com.springBootRest.bootstrapRest1.BootstrapRest.repository.UserRepository;
+import com.springBootRest.bootstrapRest1.BootstrapRest.model.Role;
+import com.springBootRest.bootstrapRest1.BootstrapRest.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
-import java.util.List;
 
-@Transactional
 @Service
 public class UserServiceImp implements UserService {
-    private final    UserRepository userRepository;
+    private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
 
@@ -32,9 +30,6 @@ public class UserServiceImp implements UserService {
 
     @Override
     public void save(User user) {
-        if (user == null)  {
-            throw  new NullPointerException("User is no detected");
-        }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
@@ -47,9 +42,6 @@ public class UserServiceImp implements UserService {
     @Override
     public void update(long id, User updatedUser) {
         String oldPassword = userRepository.findById(updatedUser.getId()).orElse(null).getPassword();
-        if (updatedUser == null) {
-            throw  new NullPointerException("updatedUser is no detected");
-        }
         if (!oldPassword.equals(updatedUser.getPassword())) {
             updatedUser.setPassword(passwordEncoder.encode(updatedUser.getPassword()));
         }
@@ -64,10 +56,5 @@ public class UserServiceImp implements UserService {
     @Override
     public List<Role> getRoles() {
         return (List<Role>) roleRepository.findAll();
-    }
-
-    @Override
-    public User getUserByUserName(String name) {
-        return userRepository.findUserByUsername(name);
     }
 }

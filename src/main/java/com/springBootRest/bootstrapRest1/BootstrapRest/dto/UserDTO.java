@@ -1,8 +1,8 @@
-package com.springBoot.bootstrap1.Bootstrap.dto;
+package com.springBootRest.bootstrapRest1.BootstrapRest.dto;
 
+import antlr.collections.List;
 import lombok.Data;
 
-import java.util.List;
 
 @Data
 public class UserDTO {
