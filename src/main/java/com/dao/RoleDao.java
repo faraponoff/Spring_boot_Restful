@@ -1,6 +1,6 @@
-package com.BootstrapRest.dao;
+package com.dao;
 
-import com.BootstrapRest.model.Role;
+import com.model.Role;
 import java.util.List;
 
 public interface RoleDao {

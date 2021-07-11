@@ -1,10 +1,8 @@
-package com.BootstrapRest.dao;
+package com.dao;
 
-import com.BootstrapRest.model.User;
+import com.model.User;
 
 import java.util.List;
-
-
 public interface UserDao {
     void addUser(User user);
     void updateUser(int id, User user);

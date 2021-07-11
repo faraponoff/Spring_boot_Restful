@@ -1,8 +1,8 @@
-package com.BootstrapRest.controller;
+package com.controller;
 
-import com.BootstrapRest.model.User;
-import com.BootstrapRest.service.RoleService;
-import com.BootstrapRest.service.UserService;
+import com.model.User;
+import com.service.RoleService;
+import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -1,3 +1,4 @@
+
 async function fillUserInformationTable() {
 
     let response = await fetch('/api/user');

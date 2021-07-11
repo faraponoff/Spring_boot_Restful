@@ -1,7 +1,7 @@
-package com.BootstrapRest.service;
+package com.service;
 
-import com.BootstrapRest.dao.RoleDao;
-import com.BootstrapRest.model.Role;
+import com.dao.RoleDao;
+import com.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

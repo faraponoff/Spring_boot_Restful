@@ -1,6 +1,6 @@
-package com.BootstrapRest.dao;
+package com.dao;
 
-import com.BootstrapRest.model.User;
+import com.model.User;
 import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

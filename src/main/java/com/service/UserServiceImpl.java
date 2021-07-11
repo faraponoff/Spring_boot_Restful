@@ -1,7 +1,7 @@
-package com.BootstrapRest.service;
+package com.service;
 
-import com.BootstrapRest.dao.UserDao;
-import com.BootstrapRest.model.User;
+import com.dao.UserDao;
+import com.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,6 +1,6 @@
-package com.BootstrapRest.service;
+package com.service;
 
-import com.BootstrapRest.model.Role;
+import com.model.Role;
 import java.util.List;
 
 public interface RoleService {

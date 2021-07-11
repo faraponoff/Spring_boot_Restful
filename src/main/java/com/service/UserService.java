@@ -1,6 +1,6 @@
-package com.BootstrapRest.service;
+package com.service;
 
-import com.BootstrapRest.model.User;
+import com.model.User;
 import java.util.List;
 
 
