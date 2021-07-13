@@ -27,8 +27,9 @@ public class UserRestController {
 
     @GetMapping("/user")
     public ResponseEntity<User> getCurrentUser() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = (userService.getUserByEmail(auth.getName()));
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//    User user = (userService.getUserByEmail(auth.getName()));
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return ResponseEntity.ok(user);
 
     }
