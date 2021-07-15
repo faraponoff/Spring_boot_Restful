@@ -23,14 +23,14 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     @Transactional
-    public void addUser(User user) {
-        userDao.addUser(user);
+    public void addUser(User user, List<Integer> roles) {
+        userDao.addUser(user, roles);
     }
 
     @Override
     @Transactional
-    public void updateUser(int id, User newUser) {
-        userDao.updateUser(id, newUser);
+    public void updateUser(int id, User newUser, List<Integer> roles) {
+        userDao.updateUser(id, newUser, roles);
     }
 
     @Override

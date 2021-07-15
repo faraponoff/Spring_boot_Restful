@@ -27,8 +27,6 @@ public class UserRestController {
 
     @GetMapping("/user")
     public ResponseEntity<User> getCurrentUser() {
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//    User user = (userService.getUserByEmail(auth.getName()));
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return ResponseEntity.ok(user);
 
@@ -41,10 +39,7 @@ public class UserRestController {
 
     @PostMapping("/admin")
     public ResponseEntity<List<User>> saveUser(User user, @RequestParam(name = "rolesNewUser", required = false) List<Integer> roles) {
-        if (roles.size() > 0) {
-            roles.forEach(roleIndex -> user.getRoles().add(roleService.getRoleById(roleIndex)));
-        }
-        userService.addUser(user);
+        userService.addUser(user, roles);
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
@@ -52,10 +47,7 @@ public class UserRestController {
     public ResponseEntity<?> updateUser(User user,
                                         @PathVariable int id,
                                         @RequestParam(name = "rolesEditUser", required = false) List<Integer> roles) {
-        if (roles.size() > 0) {
-            roles.forEach(roleIndex -> user.getRoles().add(roleService.getRoleById(roleIndex)));
-        }
-        userService.updateUser(id, user);
+        userService.updateUser(id, user, roles);
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
