@@ -1,8 +1,6 @@
 package com.dao;
 
 import com.model.User;
-import com.service.RoleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -10,8 +8,7 @@ import java.util.List;
 
 @Repository
 public class UserDaoImpl implements UserDao {
-    @Autowired
-    private RoleService roleService;
+
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -29,18 +26,11 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void addUser(User user, List<Integer> roles) {
-        if (roles.size() > 0) {
-
-            roles.forEach(roleIndex -> user.getRoles().add(roleService.getRoleById(roleIndex)));
-        }
         entityManager.persist(user);
     }
 
     @Override
     public void updateUser(int id, User newUser, List<Integer> roles) {
-        if (roles.size() > 0) {
-            roles.forEach(roleIndex -> newUser.getRoles().add(roleService.getRoleById(roleIndex)));
-        }
         User user = entityManager.find(User.class, id);
         user.setFirstName(newUser.getFirstName());
         user.setLastName(newUser.getLastName());

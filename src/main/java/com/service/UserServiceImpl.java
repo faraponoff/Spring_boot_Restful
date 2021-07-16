@@ -13,23 +13,31 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {
-
+    private RoleService roleService;
     private UserDao userDao;
 
     @Autowired
-    public void setUserDao(UserDao userDao) {
+    public UserServiceImpl(RoleService roleService, UserDao userDao) {
+        this.roleService = roleService;
         this.userDao = userDao;
     }
 
     @Override
     @Transactional
     public void addUser(User user, List<Integer> roles) {
+        if (roles.size() > 0) {
+
+            roles.forEach(roleIndex -> user.getRoles().add(roleService.getRoleById(roleIndex)));
+        }
         userDao.addUser(user, roles);
     }
 
     @Override
     @Transactional
     public void updateUser(int id, User newUser, List<Integer> roles) {
+        if (roles.size() > 0) {
+            roles.forEach(roleIndex -> newUser.getRoles().add(roleService.getRoleById(roleIndex)));
+        }
         userDao.updateUser(id, newUser, roles);
     }
 
